@@ -2,6 +2,8 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QTcpServer>
+#include <QTcpSocket>
 #include <QDebug>
 
 namespace Ui {
@@ -18,6 +20,9 @@ public:
         
 private:
         Ui::Widget *ui;
+        QTcpServer * server;
+public slots:
+        void sendMessages();
 };
 
 #endif // WIDGET_H
