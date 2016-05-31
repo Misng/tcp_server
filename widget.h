@@ -20,9 +20,11 @@ public:
         
 private:
         Ui::Widget *ui;
-        QTcpServer * server;
+        QTcpServer * server;//服务器。
+        QTcpSocket * client;//用于与客户端通信的套接字
 public slots:
-        void sendMessages();
+        void sendMessages();//向客户端发送数据
+        void recvMessage();//接受来自客户端的数据。
 };
 
 #endif // WIDGET_H
