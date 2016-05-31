@@ -35,8 +35,8 @@ void Widget::sendMessages()
         out << quint16(block.size() - sizeof(quint16));//使用总数据的大小减去quint16的大小，即得出内容的大小。
 
         QTcpSocket * client = server->nextPendingConnection();//返回下一个链接的QTcpSocket目标。
-        connect(client,SIGNAL(disconnected()),client,SLOT(deleteLater()));//当一个socket确定断开时，disconnected信号发出。如果需要删除发送对象，则使用deleteLater函数。
+//        connect(client,SIGNAL(disconnected()),client,SLOT(deleteLater()));//当一个socket确定断开时，disconnected信号发出。如果需要删除发送对象，则使用deleteLater函数。
         client->write(block);
-        client->disconnectFromHost();//企图关闭这个socket，如果还有后续的数据需要写入，QAbstractSocket会进入到ClosingState并且延迟直到所有的数据全部写入。最后，进入未连接状态和发送disconnected信号。
+//        client->disconnectFromHost();//企图关闭这个socket，如果还有后续的数据需要写入，QAbstractSocket会进入到ClosingState并且延迟直到所有的数据全部写入。最后，进入未连接状态和发送disconnected信号。
         qDebug("Send message successful");
 }
